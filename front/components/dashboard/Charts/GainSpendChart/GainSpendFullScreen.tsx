@@ -4,14 +4,14 @@ import { GSChart } from './GSChart'
 import { GainSpendChartProps } from '.'
 import { memo } from 'react'
 
-interface GainSpendFullScreen extends GenericToggle, GainSpendChartProps {}
+interface GainSpendFullScreenProps extends GenericToggle, GainSpendChartProps {}
 
 function GainSpendFullScreen({
   isOn,
   setIsOn,
   gainRecords,
   spendRecors,
-}: GainSpendFullScreen) {
+}: GainSpendFullScreenProps) {
   return (
     <Wrapper
       isOn={isOn}
@@ -28,4 +28,4 @@ function GainSpendFullScreen({
   )
 }
 
-export default memo(GSChart)
+export default memo(GainSpendFullScreen)
