@@ -1,9 +1,11 @@
 import { IconButton } from '@/components/IconBtnTemplate'
 import { getCookie, setCookie } from 'cookies-next'
 import { Moon, Sun } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export default function ThemeHandler({ isBarOpen }: { isBarOpen: boolean }) {
+  const router = useRouter()
   const [darkTheme, setDarkTheme] = useState(false)
 
   useEffect(() => {
@@ -13,13 +15,14 @@ export default function ThemeHandler({ isBarOpen }: { isBarOpen: boolean }) {
 
   function themeHander() {
     const html = document.getElementById('html')
-
     if (html?.className != null) {
-      darkTheme ? setCookie('theme', 'light') : setCookie('theme', 'dark')
-      darkTheme ? (html.className = 'light') : (html.className = 'dark')
+      const theme = darkTheme ? 'dark' : 'light'
+      setCookie('theme', theme)
+      localStorage.setItem('theme', theme)
+      html.className = theme
     }
-
     setDarkTheme((old) => !old)
+    router.refresh()
   }
 
   return (

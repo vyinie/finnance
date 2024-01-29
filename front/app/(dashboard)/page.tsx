@@ -6,7 +6,7 @@ import { GainSpendChart } from '@/components/dashboard/Charts/GainSpendChart'
 
 import notesList from '@/Noteslist.json'
 
-import { gainSpendList } from '@/components/dashboard/Charts/gainSpendList'
+import { gainSpendList } from '@/components/dashboard/Charts/GainSpendChart/gainSpendList'
 
 const gainSpendValues = gainSpendList(notesList)
 

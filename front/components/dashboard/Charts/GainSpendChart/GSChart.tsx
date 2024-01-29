@@ -1,21 +1,11 @@
-'use client'
-import dynamic from 'next/dynamic'
 import { ApexOptions } from 'apexcharts'
-import { twMerge } from 'tailwind-merge'
-import { HTMLAttributes } from 'react'
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
+import dynamic from 'next/dynamic'
+import { GainSpendChartProps } from '.'
+const ChartTemplate = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-interface GainSpendChartProps extends HTMLAttributes<HTMLDivElement> {
-  gainRecords: number[]
-  spendRecors: number[]
-  classname?: string
-}
+export function GSChart({ gainRecords, spendRecors }: GainSpendChartProps) {
+  const theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'
 
-export function GainSpendChart({
-  gainRecords,
-  spendRecors,
-  ...rest
-}: GainSpendChartProps) {
   const series: ApexAxisChartSeries = [
     {
       color: '#00E5BC',
@@ -30,8 +20,7 @@ export function GainSpendChart({
   ]
 
   const options: ApexOptions = {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    theme: { mode: theme },
     chart: {
       toolbar: { show: false },
     },
@@ -78,21 +67,13 @@ export function GainSpendChart({
       },
     ],
   }
-
   return (
-    <div
-      className={twMerge(
-        'min-h-56 w-full rounded-md border-2 border-neutral-400 dark:border-neutral-500',
-        rest.classname,
-      )}
-    >
-      <Chart
-        type="bar"
-        height={'100%'}
-        width={'100%'}
-        options={options}
-        series={series}
-      />
-    </div>
+    <ChartTemplate
+      type="bar"
+      height={'100%'}
+      width={'100%'}
+      options={options}
+      series={series}
+    />
   )
 }
