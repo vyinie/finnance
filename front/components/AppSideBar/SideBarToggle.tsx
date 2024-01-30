@@ -25,6 +25,7 @@ export function MobileSideBarToggle({
       <IconButton
         data-is-open={isOn}
         onClick={(e) => stateToggle(e, setIsOn)}
+        kaseClassName="handler"
         className="relative z-10 flex justify-end rounded-r-lg bg-neutral-50 p-0.5 transition data-[is-open=false]:rounded-lg data-[is-open=true]:delay-100 dark:bg-neutral-500"
       >
         {isOn ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}

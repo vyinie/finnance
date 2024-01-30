@@ -27,7 +27,6 @@ export default function ThemeHandler({ isBarOpen }: { isBarOpen: boolean }) {
 
   return (
     <IconButton
-      kaseClassName="not_handle"
       data-is-bar-open={isBarOpen}
       className="mb-2 flex w-44 items-center justify-around overflow-hidden rounded-md bg-gray-200 p-1 text-xl font-bold capitalize tracking-wide transition-all data-[is-bar-open=false]:w-10 dark:bg-neutral-600 "
       onClick={themeHander}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 101,
+    "name": "coisa 0101",
+    "value": 243,
+    "class": "transporte",
+    "inFlow": false,
+    "date": "2024-01-01T20:03:59.089Z"
+  },
+  {
+    "id": 201,
+    "name": "coisa 0201",
+    "value": 1652,
+    "class": "investimento",
+    "inFlow": true,
+    "date": "2024-01-02T20:03:59.089Z"
+  },
+  {
+    "id": 301,
+    "name": "coisa 0301",
+    "value": 689,
+    "class": "investimento",
+    "inFlow": false,
+    "date": "2024-01-03T20:03:59.089Z"
+  },
+  {
+    "id": 401,
+    "name": "coisa 0401",
+    "value": 761,
+    "class": "casa",
+    "inFlow": false,
+    "date": "2024-01-04T20:03:59.089Z"
+  },
+  {
+    "id": 501,
+    "name": "coisa 0501",
+    "value": 1105,
+    "class": "investimento",
+    "inFlow": false,
+    "date": "2024-01-05T20:03:59.089Z"
+  }
+]

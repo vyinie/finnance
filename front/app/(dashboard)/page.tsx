@@ -1,16 +1,17 @@
 import Card from '@/components/InfoCard/Card'
 import { AppSideBar } from '@/components/AppSideBar'
-import { NoteProps, NotesTable } from '@/components/dashboard/NotesTable'
+import { NotesTable } from '@/components/dashboard/NotesTable'
 import { DebtProps, DebtsTable } from '@/components/dashboard/DebtsTable'
-import { GainSpendChart } from '@/components/dashboard/Charts/GainSpendChart'
+import { GainSpend } from '@/components/dashboard/Charts/GainSpend'
+import { Budget } from '@/components/dashboard/Charts/Budget'
 
-import notesList from '@/Noteslist.json'
+import notesList from '@/db/Noteslist.json'
+import budgetData from '@/db/BudgetData.json'
 
-import { gainSpendList } from '@/components/dashboard/Charts/GainSpendChart/gainSpendList'
+import { gainSpendList } from '@/components/dashboard/Charts/GainSpend/gainSpendList'
 
 const gainSpendValues = gainSpendList(notesList)
 
-const notes: NoteProps[] = notesList
 const debts: DebtProps[] = [
   {
     id: 1,
@@ -48,6 +49,7 @@ const debts: DebtProps[] = [
     value: 600,
   },
 ]
+
 export default function Home() {
   return (
     <main className=" w-full grid-cols-[60px,auto] bg-neutral-50 transition-colors dark:bg-neutral-700  max-[457px]:pb-5 min-[457px]:grid">
@@ -67,19 +69,19 @@ export default function Home() {
         </div>
 
         {/* =============== budget =============== */}
-
-        {/* =============== notes table =============== */}
-        <NotesTable notesList={notes} />
-
-        {/* =============== debts table =============== */}
-        <DebtsTable debtsList={debts} />
+        <Budget budgetData={budgetData} />
 
         {/* =============== gain-spend ratio =============== */}
-        <GainSpendChart
-          className="order-first"
+        <GainSpend
           gainRecords={gainSpendValues.gains}
           spendRecors={gainSpendValues.spends}
         />
+
+        {/* =============== notes table =============== */}
+        <NotesTable notesList={notesList} />
+
+        {/* =============== debts table =============== */}
+        <DebtsTable debtsList={debts} />
       </div>
       {/* =============== side bar of add note form =============== */}
     </main>

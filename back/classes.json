@@ -1,0 +1,40 @@
+{
+  "classes": [
+    {
+      "name": "transporte",
+      "data": { "expense": 53114, "spendingCap": 26557 },
+      "color": "rgb(131,88,158)"
+    },
+    {
+      "name": "investimento",
+      "data": { "expense": 64684, "spendingCap": 32342 },
+      "color": "rgb(161,16,190)"
+    },
+    {
+      "name": "casa",
+      "data": { "expense": 63560, "spendingCap": 31780 },
+      "color": "rgb(76,4,199)"
+    },
+    {
+      "name": "alimentação",
+      "data": { "expense": 53605, "spendingCap": 71473 },
+      "color": "rgb(106,90,157)"
+    },
+    {
+      "name": "essencial",
+      "data": { "expense": 28157, "spendingCap": 37543 },
+      "color": "rgb(24,133,52)"
+    },
+    {
+      "name": "educação",
+      "data": { "expense": 34886, "spendingCap": 17443 },
+      "color": "rgb(118,172,220)"
+    },
+    {
+      "name": "lazer",
+      "data": { "expense": 51073, "spendingCap": 25537 },
+      "color": "rgb(212,234,102)"
+    }
+  ],
+  "total": 349079
+}
