@@ -1,9 +1,10 @@
 'use client'
 import { IconButton } from '@/components/IconBtnTemplate'
-import { Maximize, Settings, SlidersHorizontal } from 'lucide-react'
-import React, { HTMLAttributes } from 'react'
+import { Maximize, SlidersHorizontal } from 'lucide-react'
+import React, { HTMLAttributes, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { BudgetChart } from './BudgetChart'
+import FullScreenBudgetChart from './FullScreenBudgetChart'
 
 export interface BudgetChartDataProps {
   classes: {
@@ -19,10 +20,11 @@ interface BudgetChartProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function Budget({ budgetData, ...rest }: BudgetChartProps) {
+  const [isFullScreen, setIsFullScreen] = useState(false)
   return (
     <div
       className={twMerge(
-        'relative flex min-h-72 w-full flex-col rounded-lg border-2 border-neutral-400 capitalize dark:border-neutral-500',
+        'relative flex min-h-fit w-full flex-col rounded-lg border-2 border-neutral-400 pb-5 capitalize dark:border-neutral-500',
         rest.className,
       )}
     >
@@ -35,9 +37,19 @@ export function Budget({ budgetData, ...rest }: BudgetChartProps) {
 
       <BudgetChart budgetData={budgetData} />
 
-      <IconButton className="absolute bottom-1 right-1">
+      {/* full screen button */}
+      <IconButton
+        onClick={() => setIsFullScreen((old) => !old)}
+        className="absolute bottom-0.5 right-1"
+      >
         <Maximize />
       </IconButton>
+
+      <FullScreenBudgetChart
+        budgetData={budgetData}
+        isOn={isFullScreen}
+        setIsOn={setIsFullScreen}
+      />
     </div>
   )
 }

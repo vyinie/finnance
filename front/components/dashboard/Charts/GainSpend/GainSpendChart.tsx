@@ -79,7 +79,7 @@ export function GainSpendChart({
           yaxis: {
             labels: {
               padding: 10,
-              style: { fontSize: '12px', fontWeight: 700 },
+              style: { fontSize: '12px', fontWeight: 600 },
               formatter: (val: number) => val.toLocaleString('pt-BR'),
             },
           },
