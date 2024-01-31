@@ -3,7 +3,6 @@ import { GenericToggle } from '@/functions/interfaces'
 import { GainSpendChart } from './GainSpendChart'
 import { GainSpendChartProps } from '.'
 import { Minimize } from 'lucide-react'
-import { IconButton } from '@/components/IconBtnTemplate'
 
 interface GainSpendFullScreenProps extends GenericToggle, GainSpendChartProps {}
 
@@ -21,17 +20,16 @@ export default function GainSpendFullScreen({
     >
       <div
         data-is-on={isOn}
-        className="relative min-h-[90vw] min-w-[90vh] rotate-90 rounded bg-white p-2 dark:bg-neutral-700"
+        className="relative w-0 min-w-0 rotate-90 overflow-hidden rounded bg-white transition-all data-[is-on=true]:min-w-[calc(90vh)] data-[is-on=true]:delay-100 dark:bg-neutral-700"
       >
-        <GainSpendChart gainRecords={gainRecords} spendRecors={spendRecors} />
+        <div className="min-h-[90vw] min-w-[90vh] p-2">
+          <GainSpendChart gainRecords={gainRecords} spendRecors={spendRecors} />
+        </div>
 
-        <IconButton
+        <Minimize
           onClick={() => setIsOn((old) => !old)}
-          kaseClassName="handler"
           className="absolute bottom-1 right-1"
-        >
-          <Minimize />
-        </IconButton>
+        ></Minimize>
       </div>
     </Wrapper>
   )

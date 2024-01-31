@@ -28,7 +28,7 @@ export function AppSideBar() {
 
       {/* mobile tablet-desktop */}
       <Bar
-        className="sticky top-0 hidden h-screen py-2 data-[is-open=false]:w-[60px] min-[457px]:flex min-[457px]:data-[is-open=true]:delay-0"
+        className="sticky top-0 hidden h-screen py-2 data-[is-open=false]:w-[60px] min-[457px]:flex"
         setIsOpen={setSideBarToggle}
         isOpen={sideBarToggle}
       />

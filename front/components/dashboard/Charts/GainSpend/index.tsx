@@ -28,7 +28,7 @@ export function GainSpend({
       )}
     >
       <header className="flex w-full justify-between p-1">
-        <h1 className="text-xl font-bold capitalize">
+        <h1 className="text-lg font-bold capitalize">
           ganhos/gastos deste ano
         </h1>
 
@@ -42,12 +42,10 @@ export function GainSpend({
       </div>
 
       {/* full screen button */}
-      <IconButton
+      <Maximize
         onClick={() => setIsFullScreen((old) => !old)}
         className="absolute bottom-1 right-1"
-      >
-        <Maximize />
-      </IconButton>
+      />
 
       {/* full screen chart */}
       <GainSpendFullScreen

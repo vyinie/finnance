@@ -1,6 +1,6 @@
 'use client'
 import { IconButton } from '@/components/IconBtnTemplate'
-import { Settings } from 'lucide-react'
+import { Maximize, Settings, SlidersHorizontal } from 'lucide-react'
 import React, { HTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { BudgetChart } from './BudgetChart'
@@ -22,18 +22,22 @@ export function Budget({ budgetData, ...rest }: BudgetChartProps) {
   return (
     <div
       className={twMerge(
-        'h-72 w-full rounded-lg border-2 border-neutral-400 capitalize dark:border-neutral-500',
+        'relative flex min-h-72 w-full flex-col rounded-lg border-2 border-neutral-400 capitalize dark:border-neutral-500',
         rest.className,
       )}
     >
       <header className="flex w-full justify-between p-1">
-        <h1 className="text-xl font-bold">orçamento</h1>
+        <h1 className="text-lg font-bold">orçamento</h1>
         <IconButton>
-          <Settings />
+          <SlidersHorizontal />
         </IconButton>
       </header>
 
       <BudgetChart budgetData={budgetData} />
+
+      <IconButton className="absolute bottom-1 right-1">
+        <Maximize />
+      </IconButton>
     </div>
   )
 }

@@ -18,7 +18,7 @@ export function MobileSideBarToggle({
     <div
       data-is-open={isOn}
       className={twMerge(
-        'fixed left-1 top-[3px] z-10 transition-all data-[is-open=true]:left-56 data-[is-open=true]:delay-100',
+        'fixed left-1 top-[3px] z-10 transition-all data-[is-open=true]:left-56',
         rest.className,
       )}
     >

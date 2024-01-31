@@ -7,8 +7,8 @@ export function GainSpendChart({
   gainRecords,
   spendRecors,
 }: GainSpendChartProps) {
-  const theme = localStorage?.getItem('theme') === 'dark' ? 'dark' : 'light'
-  const textColor = theme === 'dark' ? '#d4d4d4' : '#4b5563'
+  // const theme = localStorage?.getItem('theme') === 'dark' ? 'dark' : 'light'
+  // const textColor = theme === 'dark' ? '#d4d4d4' : '#4b5563'
 
   const series: ApexAxisChartSeries = [
     {
@@ -28,7 +28,7 @@ export function GainSpendChart({
     chart: {
       toolbar: { show: false },
       background: 'transparent',
-      foreColor: textColor,
+      //   foreColor: textColor,
     },
     plotOptions: {
       bar: {
@@ -40,7 +40,7 @@ export function GainSpendChart({
     yaxis: {
       labels: {
         padding: 10,
-        style: { fontSize: '16px', fontWeight: 600 },
+        style: { fontSize: '14px', fontWeight: 600 },
         formatter(val) {
           return val.toLocaleString('pt-BR')
         },
@@ -69,7 +69,7 @@ export function GainSpendChart({
         fontSize: '16px',
       },
       y: {
-        formatter: (val) => `R$ ${val.toLocaleString()} `,
+        formatter: (val) => `R$ ${val.toLocaleString()}`,
       },
     },
     responsive: [
@@ -80,9 +80,7 @@ export function GainSpendChart({
             labels: {
               padding: 10,
               style: { fontSize: '12px', fontWeight: 700 },
-              formatter(val: number) {
-                return val.toLocaleString('pt-BR')
-              },
+              formatter: (val: number) => val.toLocaleString('pt-BR'),
             },
           },
           xaxis: {
