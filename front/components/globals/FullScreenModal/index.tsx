@@ -20,9 +20,9 @@ export default function FullScreenModal({
     >
       <div
         data-is-on={isOn}
-        className="relative w-0 min-w-0 rotate-90 overflow-hidden rounded bg-white transition-all data-[is-on=true]:min-w-[calc(92vh)] data-[is-on=true]:delay-100 dark:bg-neutral-700"
+        className="relative w-0 min-w-0 rotate-90 overflow-hidden rounded bg-white transition-all data-[is-on=true]:min-w-[92%] data-[is-on=true]:delay-100 dark:bg-neutral-700"
       >
-        <div className=" min-h-[90vw] min-w-[90vh] p-2">{children}</div>
+        <div className="h-full w-full p-2">{children}</div>
 
         <Minimize
           onClick={() => setIsOn((old) => !old)}

@@ -14,6 +14,7 @@ export default function BudgetStakedChart({
       stackType: '100%',
       type: 'bar',
     },
+    grid: { yaxis: { lines: { show: false } } },
     dataLabels: {
       enabled: true,
       formatter: (val: number) => Math.round(val) + '%',
@@ -21,9 +22,14 @@ export default function BudgetStakedChart({
     },
     fill: { opacity: 1 },
     plotOptions: { bar: { horizontal: true } },
-    yaxis: { show: false, floating: true, axisBorder: { show: false } },
+    yaxis: {
+      show: false,
+      floating: true,
+      axisBorder: { show: false },
+    },
     xaxis: {
       axisBorder: { show: false },
+      axisTicks: { show: false },
       labels: { style: { fontSize: '0px' } },
       floating: true,
     },

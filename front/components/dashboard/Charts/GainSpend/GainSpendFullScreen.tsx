@@ -1,7 +1,7 @@
 import { GenericToggle } from '@/functions/interfaces'
 import { GainSpendChart } from './GainSpendChart'
 import { GainSpendChartProps } from '.'
-import FullScreenModal from '@/components/FullScreenModal'
+import FullScreenModal from '@/components/globals/FullScreenModal'
 
 interface GainSpendFullScreenProps extends GenericToggle, GainSpendChartProps {}
 

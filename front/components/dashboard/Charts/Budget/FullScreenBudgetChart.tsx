@@ -1,6 +1,6 @@
 import React from 'react'
 import { BudgetChart } from './BudgetChart'
-import FullScreenModal from '@/components/FullScreenModal'
+import FullScreenModal from '@/components/globals/FullScreenModal'
 import { GenericToggle } from '@/functions/interfaces'
 import { BudgetChartDataProps } from '.'
 

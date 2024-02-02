@@ -33,13 +33,13 @@ export function GainSpendChart({
     plotOptions: {
       bar: {
         horizontal: false,
-        columnWidth: '80%',
+        columnWidth: '70%',
+        barHeight: '100%',
       },
     },
     fill: { opacity: 1 },
     yaxis: {
       labels: {
-        padding: 10,
         style: { fontSize: '14px', fontWeight: 600 },
         formatter(val) {
           return val.toLocaleString('pt-BR')
@@ -78,7 +78,6 @@ export function GainSpendChart({
         options: {
           yaxis: {
             labels: {
-              padding: 10,
               style: { fontSize: '12px', fontWeight: 600 },
               formatter: (val: number) => val.toLocaleString('pt-BR'),
             },

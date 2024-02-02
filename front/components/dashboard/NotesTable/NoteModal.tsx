@@ -1,7 +1,7 @@
 import { NoteProps } from '.'
 import { GenericToggle } from '@/functions/interfaces'
 import moment from 'moment'
-import { Wrapper } from '@/components/Wrapper'
+import { Wrapper } from '@/components/globals/Wrapper'
 import { Edit, Trash2 } from 'lucide-react'
 import { IconButton } from '@/components/IconBtnTemplate'
 

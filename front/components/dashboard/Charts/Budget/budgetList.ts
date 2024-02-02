@@ -3,13 +3,13 @@ import { BudgetChartDataProps } from '.'
 const budgetList = (budgetData: BudgetChartDataProps) => {
   const collunSeries: ApexAxisChartSeries = [
     {
-      data: budgetData.classes.map((budget) => ({
-        x: budget.name,
-        y: budget.data.expense,
+      data: budgetData.classes.map(({ color, data, name }) => ({
+        x: name,
+        y: data.expense,
         goals: [
           {
             name: 'Limite',
-            value: budget.data.spendingCap,
+            value: data.spendingCap,
             strokeColor: '#555',
             strokeHeight: 4,
             strokeLineCap: 'round',

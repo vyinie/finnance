@@ -19,6 +19,7 @@ export default function BudgetCollunChart({
       },
     },
     xaxis: {
+      axisTicks: { show: false },
       labels: { style: { fontSize: '0px' } },
     },
     legend: { show: false },
@@ -41,8 +42,8 @@ export default function BudgetCollunChart({
   return (
     <ChartTemplate
       type="bar"
-      height={'100%'}
-      width={'100%'}
+      height="100%"
+      width="100%"
       options={options}
       series={series}
     />
