@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { cookies } from 'next/headers'
 import './globals.css'
+import { cookies } from 'next/headers'
 
 export const metadata: Metadata = {
   title: 'Finnance',
@@ -12,9 +12,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const theme = cookies().get('theme')?.value
+  const theme = cookies().get('theme')?.value || ''
   return (
-    <html className={theme || ''} id="html" lang="pt-br">
+    <html className={`${theme}`} id="html" lang="pt-br">
       <body className="text-gray-600 transition-colors dark:text-neutral-300">
         {children}
       </body>

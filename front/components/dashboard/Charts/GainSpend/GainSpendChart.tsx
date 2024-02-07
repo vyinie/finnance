@@ -3,8 +3,12 @@ import dynamic from 'next/dynamic'
 import { GainSpendChartProps } from '.'
 const ChartTemplate = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-export function GSChart({ gainRecords, spendRecors }: GainSpendChartProps) {
-  const theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'
+export function GainSpendChart({
+  gainRecords,
+  spendRecors,
+}: GainSpendChartProps) {
+  const theme = localStorage?.getItem('theme') === 'dark' ? 'dark' : 'light'
+  const textColor = theme === 'dark' ? '#d4d4d4' : '#4b5563'
 
   const series: ApexAxisChartSeries = [
     {
@@ -20,20 +24,31 @@ export function GSChart({ gainRecords, spendRecors }: GainSpendChartProps) {
   ]
 
   const options: ApexOptions = {
-    theme: { mode: theme },
+    legend: { fontSize: '14px' },
     chart: {
       toolbar: { show: false },
+      background: 'transparent',
+      foreColor: textColor,
     },
     plotOptions: {
       bar: {
         horizontal: false,
-        columnWidth: '80%',
+        columnWidth: '70%',
+        barHeight: '100%',
       },
     },
     fill: { opacity: 1 },
-    yaxis: { labels: { align: 'left', style: { fontSize: '16px' } } },
+    yaxis: {
+      labels: {
+        padding: 6,
+        style: { fontSize: '14px', fontWeight: 600 },
+        formatter(val) {
+          return val.toLocaleString('pt-BR')
+        },
+      },
+    },
     xaxis: {
-      labels: { style: { fontSize: '14px' } },
+      labels: { style: { fontSize: '14px', fontWeight: 600 } },
       categories: [
         'Jan',
         'Fev',
@@ -55,14 +70,23 @@ export function GSChart({ gainRecords, spendRecors }: GainSpendChartProps) {
         fontSize: '16px',
       },
       y: {
-        formatter: (val) => `R$ ${val.toLocaleString()} `,
+        formatter: (val) => `R$ ${val.toLocaleString()}`,
       },
     },
     responsive: [
       {
         breakpoint: 480,
         options: {
-          yaxis: { labels: { style: { fontSize: '12px' } } },
+          yaxis: {
+            labels: {
+              padding: 6,
+              style: { fontSize: '12px', fontWeight: 600 },
+              formatter: (val: number) => val.toLocaleString('pt-BR'),
+            },
+          },
+          xaxis: {
+            labels: { style: { fontSize: '12px', fontWeight: 600 } },
+          },
         },
       },
     ],

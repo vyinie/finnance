@@ -16,11 +16,15 @@
   border-radius: 10px;
 }
 *::-webkit-scrollbar-corner {
-  @apply w-0 h-0;
+  @apply h-0 w-0;
 }
 
 html,
 body {
   -webkit-font-smoothing: antialiased;
   @apply h-full w-full;
+}
+
+h1 {
+  @apply text-xl font-bold;
 }

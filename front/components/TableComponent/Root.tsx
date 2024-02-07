@@ -1,5 +1,5 @@
 import { SlidersHorizontal } from 'lucide-react'
-import { IconButton } from '../IconBtnTemplate'
+import { IconButton } from '@/components/globals/IconBtnTemplate'
 import { ReactNode } from 'react'
 
 export default function Root({

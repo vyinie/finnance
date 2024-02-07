@@ -1,4 +1,6 @@
 import { NoteProps } from '@/components/dashboard/NotesTable'
+import { writeFileSync } from 'fs'
+import notesList from '@/db/Noteslist.json'
 
 const gainSpendList = (notesList: NoteProps[]) => {
   const list: { gains: number[]; spends: number[] } = {
@@ -24,4 +26,5 @@ const gainSpendList = (notesList: NoteProps[]) => {
   return list
 }
 
+writeFileSync('gainSpendList.json', JSON.stringify(gainSpendList(notesList)))
 export { gainSpendList }

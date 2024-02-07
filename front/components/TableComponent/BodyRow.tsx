@@ -1,6 +1,6 @@
 import { MoreVertical } from 'lucide-react'
 import { HTMLAttributes, ReactNode } from 'react'
-import { IconButton } from '../IconBtnTemplate'
+import { IconButton } from '@/components/globals/IconBtnTemplate'
 import { twMerge } from 'tailwind-merge'
 
 interface BodyRowProps extends HTMLAttributes<HTMLTableRowElement> {

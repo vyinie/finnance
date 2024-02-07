@@ -15,7 +15,7 @@ export function Bar({ isOpen, setIsOpen, ...rest }: SideBarProps) {
       {...rest}
       data-is-open={isOpen}
       className={twMerge(
-        'not_handle z-[5] flex h-full w-56 flex-col items-center justify-between overflow-hidden border-r-2 border-neutral-400 bg-neutral-100 transition-all data-[is-open=false]:w-0 data-[is-open=true]:delay-100 dark:border-neutral-500 dark:bg-neutral-700',
+        'z-[5] flex h-full w-56 flex-col items-center justify-between overflow-hidden border-r-2 border-neutral-400 bg-neutral-100 transition-all data-[is-open=false]:w-0 dark:border-neutral-500 dark:bg-neutral-700',
         rest.className,
       )}
     >

@@ -1,4 +1,4 @@
-import { IconButton } from '@/components/IconBtnTemplate'
+import { IconButton } from '@/components/globals/IconBtnTemplate'
 import { GenericToggle } from '@/functions/interfaces'
 import { stateToggle } from '@/functions/stateToggle'
 import { Menu, X, SidebarClose, SidebarOpen } from 'lucide-react'
@@ -18,14 +18,15 @@ export function MobileSideBarToggle({
     <div
       data-is-open={isOn}
       className={twMerge(
-        'fixed left-1 top-[3px] z-10 transition-all data-[is-open=true]:left-56 data-[is-open=true]:delay-100',
+        'fixed left-1 top-[3px] z-10 transition-all data-[is-open=true]:left-56',
         rest.className,
       )}
     >
       <IconButton
         data-is-open={isOn}
         onClick={(e) => stateToggle(e, setIsOn)}
-        className="relative z-10 flex justify-end rounded-r-lg bg-neutral-50 p-0.5 transition data-[is-open=false]:rounded-lg data-[is-open=true]:delay-100 dark:bg-neutral-500"
+        kaseClassName="handler"
+        className="relative z-10 flex justify-end rounded-r-lg bg-neutral-200 p-0.5 transition data-[is-open=false]:rounded-lg data-[is-open=true]:delay-100 dark:bg-neutral-500"
       >
         {isOn ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
       </IconButton>

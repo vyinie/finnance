@@ -19,7 +19,7 @@ export function Wrapper({
     <div
       data-is-open={isOn}
       className={twMerge(
-        'fixed left-0 top-0 z-10 h-screen w-screen bg-black/50 transition-all data-[is-open=false]:-z-10 data-[is-open=false]:opacity-0 data-[is-open=false]:delay-100',
+        'handler fixed left-0 top-0 z-10 h-screen w-screen bg-black/50 transition-all data-[is-open=false]:-z-10 data-[is-open=false]:opacity-0 data-[is-open=false]:delay-100',
         rest.className,
       )}
       onClick={(e) => stateToggle(e, setIsOn, toggleOptions)}

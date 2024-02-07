@@ -1,15 +1,25 @@
 import TableComponent from '@/components/TableComponent'
 import DebtRow from './DebtRow'
+import { PaginationPanel } from '@/components/PaginationPanel'
+import { PageProps } from '@/functions/usePagination'
 
 export interface DebtProps {
   id: number
   name: string
-  value: number
+  installmentValue: number
   remainingInstallments: number
-  payDay: Date
+  payDay: Date | string
 }
 
-export function DebtsTable({ debtsList }: { debtsList: DebtProps[] }) {
+export function DebtsTable({
+  debtsBook,
+  currentPage,
+}: {
+  debtsBook: PageProps<DebtProps>[]
+  currentPage: number
+}) {
+  const actualPage = currentPage <= debtsBook.length ? currentPage : 1
+
   return (
     <TableComponent.Root title="dívidas">
       <TableComponent.HeaderRow>
@@ -20,10 +30,21 @@ export function DebtsTable({ debtsList }: { debtsList: DebtProps[] }) {
       </TableComponent.HeaderRow>
 
       <tbody className="">
-        {debtsList.map((debt) => (
+        {debtsBook[actualPage - 1].content.map((debt) => (
           <DebtRow debt={debt} key={`debt${debt.id}`} />
         ))}
       </tbody>
+      <tfoot className="sticky left-0 flex w-full justify-center pb-2 pt-1">
+        <tr>
+          <td>
+            <PaginationPanel
+              currentPage={actualPage}
+              pages={debtsBook}
+              pageName="debtsPage"
+            />
+          </td>
+        </tr>
+      </tfoot>
     </TableComponent.Root>
   )
 }

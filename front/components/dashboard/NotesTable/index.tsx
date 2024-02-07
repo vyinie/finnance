@@ -1,5 +1,7 @@
 import TableComponent from '@/components/TableComponent'
 import NoteRow from './NoteRow'
+import { PageProps } from '@/functions/usePagination'
+import { PaginationPanel } from '@/components/PaginationPanel'
 
 export interface NoteProps {
   id: number
@@ -10,7 +12,14 @@ export interface NoteProps {
   date: Date | string
 }
 
-export function NotesTable({ notesList }: { notesList: NoteProps[] }) {
+export function NotesTable({
+  notesBook,
+  currentPage,
+}: {
+  notesBook: PageProps<NoteProps>[]
+  currentPage: number
+}) {
+  const actualPage = currentPage <= notesBook.length ? currentPage : 1
   return (
     <TableComponent.Root title="notas">
       <TableComponent.HeaderRow>
@@ -22,10 +31,21 @@ export function NotesTable({ notesList }: { notesList: NoteProps[] }) {
       </TableComponent.HeaderRow>
 
       <tbody className="p-1">
-        {notesList.map((note) => (
+        {notesBook[actualPage - 1].content.map((note) => (
           <NoteRow note={note} key={`note${note.id}`} />
         ))}
       </tbody>
+      <tfoot className="sticky left-0 flex w-full justify-center pb-2 pt-1">
+        <tr className="">
+          <td>
+            <PaginationPanel
+              currentPage={actualPage}
+              pages={notesBook}
+              pageName="notesPage"
+            />
+          </td>
+        </tr>
+      </tfoot>
     </TableComponent.Root>
   )
 }

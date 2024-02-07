@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "apexcharts": "^3.45.1",
+    "apexcharts": "^3.45.2",
     "cookies-next": "^4.1.0",
     "lucide-react": "^0.299.0",
     "moment": "^2.30.1",
