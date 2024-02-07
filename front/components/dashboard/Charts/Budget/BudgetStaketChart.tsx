@@ -1,3 +1,4 @@
+'use client'
 import { ApexOptions } from 'apexcharts'
 import dynamic from 'next/dynamic'
 const ChartTemplate = dynamic(() => import('react-apexcharts'), { ssr: false })
@@ -11,6 +12,7 @@ export default function BudgetStakedChart({
   const textColor = theme === 'dark' ? '#d4d4d4' : '#4b5563'
 
   const options: ApexOptions = {
+    theme: { mode: theme },
     chart: {
       toolbar: { show: false },
       stacked: true,
