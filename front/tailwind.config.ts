@@ -8,6 +8,9 @@ const config: Config = {
   ],
   darkMode: 'class',
   theme: {
+    gridTemplateAreas: {
+      dashboard: ['budget card', 'budget gainSpend', 'notes debts'],
+    },
     extend: {
       colors: {
         neutral: { 450: '#7d7d7d' },
@@ -21,6 +24,6 @@ const config: Config = {
       // },
     },
   },
-  plugins: [],
+  plugins: [require('@savvywombat/tailwindcss-grid-areas')],
 }
 export default config

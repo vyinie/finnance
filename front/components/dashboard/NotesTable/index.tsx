@@ -2,6 +2,7 @@ import TableComponent from '@/components/TableComponent'
 import NoteRow from './NoteRow'
 import { PageProps } from '@/functions/usePagination'
 import { PaginationPanel } from '@/components/PaginationPanel'
+import { HTMLAttributes } from 'react'
 
 export interface NoteProps {
   id: number
@@ -12,16 +13,19 @@ export interface NoteProps {
   date: Date | string
 }
 
+interface NotesTableProps extends HTMLAttributes<HTMLDivElement> {
+  notesBook: PageProps<NoteProps>[]
+  currentPage: number
+}
+
 export function NotesTable({
   notesBook,
   currentPage,
-}: {
-  notesBook: PageProps<NoteProps>[]
-  currentPage: number
-}) {
+  ...rest
+}: NotesTableProps) {
   const actualPage = currentPage <= notesBook.length ? currentPage : 1
   return (
-    <TableComponent.Root title="notas">
+    <TableComponent.Root title="notas" className={rest.className}>
       <TableComponent.HeaderRow>
         <th className="min-w-[116px] px-1">título</th>
         <th className="min-w-20">valor</th>

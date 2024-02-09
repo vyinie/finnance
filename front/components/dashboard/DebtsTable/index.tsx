@@ -2,6 +2,7 @@ import TableComponent from '@/components/TableComponent'
 import DebtRow from './DebtRow'
 import { PaginationPanel } from '@/components/PaginationPanel'
 import { PageProps } from '@/functions/usePagination'
+import { HTMLAttributes } from 'react'
 
 export interface DebtProps {
   id: number
@@ -11,17 +12,20 @@ export interface DebtProps {
   payDay: Date | string
 }
 
+interface DebtsTableProps extends HTMLAttributes<HTMLDivElement> {
+  debtsBook: PageProps<DebtProps>[]
+  currentPage: number
+}
+
 export function DebtsTable({
   debtsBook,
   currentPage,
-}: {
-  debtsBook: PageProps<DebtProps>[]
-  currentPage: number
-}) {
+  ...rest
+}: DebtsTableProps) {
   const actualPage = currentPage <= debtsBook.length ? currentPage : 1
 
   return (
-    <TableComponent.Root title="dívidas">
+    <TableComponent.Root title="dívidas" className={rest.className}>
       <TableComponent.HeaderRow>
         <th className="min-w-32">título</th>
         <th className="min-w-20 px-1">parcela</th>

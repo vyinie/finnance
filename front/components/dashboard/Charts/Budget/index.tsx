@@ -24,7 +24,7 @@ export function Budget({ budgetData, ...rest }: BudgetChartProps) {
   return (
     <div
       className={twMerge(
-        'relative flex min-h-fit w-full flex-col rounded-lg border-2 border-neutral-400 pb-5 capitalize dark:border-neutral-500',
+        'relative flex h-fit w-full flex-col rounded-lg border-2 border-neutral-400 pb-5 capitalize dark:border-neutral-500',
         rest.className,
       )}
     >

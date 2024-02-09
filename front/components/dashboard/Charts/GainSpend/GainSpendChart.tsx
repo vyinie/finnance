@@ -7,9 +7,12 @@ export function GainSpendChart({
   gainRecords,
   spendRecors,
 }: GainSpendChartProps) {
-  const theme = localStorage?.getItem('theme') === 'dark' ? 'dark' : 'light'
-  const textColor = theme === 'dark' ? '#d4d4d4' : '#4b5563'
-
+  const theme = () => {
+    if (typeof window !== 'undefined') {
+      return localStorage?.getItem('theme') === 'dark' ? 'dark' : 'light'
+    }
+  }
+  const textColor = theme() === 'dark' ? '#d4d4d4' : '#4b5563'
   const series: ApexAxisChartSeries = [
     {
       color: '#00E5BC',

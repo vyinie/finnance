@@ -37,6 +37,9 @@ devDependencies:
   '@rocketseat/eslint-config':
     specifier: ^2.1.0
     version: 2.1.0(eslint@8.56.0)(typescript@5.3.3)
+  '@savvywombat/tailwindcss-grid-areas':
+    specifier: ^4.0.0
+    version: 4.0.0(tailwindcss@3.4.1)
   '@types/node':
     specifier: ^20
     version: 20.11.10
@@ -341,6 +344,15 @@ packages:
 
   /@rushstack/eslint-patch@1.7.2:
     resolution: {integrity: sha512-RbhOOTCNoCrbfkRyoXODZp75MlpiHMgbE5MEBZAnnnLyQNgrigEj4p0lzsMDyc1zVsJDLrivB58tgg3emX0eEA==}
+    dev: true
+
+  /@savvywombat/tailwindcss-grid-areas@4.0.0(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-gjEGTltsGfy+AJQqhkuQKQGp/SB0XzXT3ZNmrOfuwPGF5DLg5GsN5XHiaYhudMvmBwRp+9k6wrZhHBM0lhEgJA==}
+    engines: {node: '>=16.20.2'}
+    peerDependencies:
+      tailwindcss: ^3.0.1
+    dependencies:
+      tailwindcss: 3.4.1
     dev: true
 
   /@swc/helpers@0.5.2:

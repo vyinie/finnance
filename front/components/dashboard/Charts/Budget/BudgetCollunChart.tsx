@@ -1,18 +1,15 @@
-'use client'
 import { ApexOptions } from 'apexcharts'
 import dynamic from 'next/dynamic'
 const ChartTemplate = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 export default function BudgetCollunChart({
   series,
+  textColor,
 }: {
   series: ApexAxisChartSeries
+  textColor: string
 }) {
-  const theme = localStorage?.getItem('theme') === 'dark' ? 'dark' : 'light'
-  const textColor = theme === 'dark' ? '#d4d4d4' : '#4b5563'
-
   const options: ApexOptions = {
-    theme: { mode: theme },
     chart: { toolbar: { show: false }, foreColor: textColor },
     dataLabels: { enabled: false },
     fill: { opacity: 1 },
