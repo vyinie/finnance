@@ -26,11 +26,13 @@ export function DebtsTable({
 
   return (
     <TableComponent.Root title="dívidas" className={rest.className}>
-      <TableComponent.HeaderRow>
-        <th className="min-w-32">título</th>
-        <th className="min-w-20 px-1">parcela</th>
-        <th className="min-w-20 max-w-24">data de pagame.</th>
-        <th className="max-w-24">parcelas restantes</th>
+      <TableComponent.HeaderRow className="grid place-items-center [grid-template-columns:90px_80px_90px_90px_32px] min-[480px]:[grid-template-columns:repeat(4,1fr)_32px] min-[580px]:[grid-template-columns:90px_80px_90px_90px_32px] min-[930px]:[grid-template-columns:repeat(4,1fr)_repeat(2,32px)]">
+        <th className="">título</th>
+        <th className="">parcela</th>
+        <th className="w-full overflow-hidden text-ellipsis px-1">
+          data de pagamento
+        </th>
+        <th className="">parcelas restantes</th>
       </TableComponent.HeaderRow>
 
       <tbody className="">
@@ -40,13 +42,11 @@ export function DebtsTable({
       </tbody>
       <tfoot className="sticky left-0 flex w-full justify-center pb-2 pt-1">
         <tr>
-          <td>
-            <PaginationPanel
-              currentPage={actualPage}
-              pages={debtsBook}
-              pageName="debtsPage"
-            />
-          </td>
+          <PaginationPanel
+            currentPage={actualPage}
+            pages={debtsBook}
+            pageName="debtsPage"
+          />
         </tr>
       </tfoot>
     </TableComponent.Root>

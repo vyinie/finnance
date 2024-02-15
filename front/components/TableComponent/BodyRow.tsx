@@ -5,9 +5,14 @@ import { twMerge } from 'tailwind-merge'
 
 interface BodyRowProps extends HTMLAttributes<HTMLTableRowElement> {
   children: ReactNode
+  moreOptClassName: string
 }
 
-export default function BodyRow({ children, ...rest }: BodyRowProps) {
+export default function BodyRow({
+  children,
+  moreOptClassName,
+  ...rest
+}: BodyRowProps) {
   return (
     <tr
       {...rest}
@@ -17,7 +22,7 @@ export default function BodyRow({ children, ...rest }: BodyRowProps) {
       )}
     >
       {children}
-      <td className="hidden min-[550px]:block">
+      <td className={`hidden ${moreOptClassName}`}>
         <IconButton className="rounded-full p-1">
           <MoreVertical />
         </IconButton>

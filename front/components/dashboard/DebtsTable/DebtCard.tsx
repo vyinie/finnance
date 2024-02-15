@@ -6,7 +6,9 @@ import moment from 'moment'
 export function DebtCard({ debtData }: { debtData: DebtProps }) {
   return (
     <>
-      <h1 className="w-fit px-2 pb-1">{debtData.name}</h1>
+      <h1 className="w-full overflow-hidden text-ellipsis px-1 pb-1">
+        {debtData.name}
+      </h1>
 
       <div className="grid w-full grid-cols-2 place-items-center border-b-2 border-neutral-300 py-2">
         <h1 className="px-2 text-center leading-5">parcela</h1>

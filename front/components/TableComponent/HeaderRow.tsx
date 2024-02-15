@@ -1,9 +1,17 @@
-import { ReactNode } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 
-export default function HeaderRow({ children }: { children: ReactNode }) {
+interface HeaderRowProps extends HTMLAttributes<HTMLTableSectionElement> {
+  children: ReactNode
+}
+export default function HeaderRow({ children, ...rest }: HeaderRowProps) {
   return (
-    <thead className="w-full">
-      <tr className="flex items-center text-lg">{children}</tr>
+    <thead className="">
+      <tr
+        className={twMerge('flex w-full items-center text-lg', rest.className)}
+      >
+        {children}
+      </tr>
     </thead>
   )
 }

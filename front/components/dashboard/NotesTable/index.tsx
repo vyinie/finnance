@@ -26,17 +26,21 @@ export function NotesTable({
   const actualPage = currentPage <= notesBook.length ? currentPage : 1
   return (
     <TableComponent.Root title="notas" className={rest.className}>
-      <TableComponent.HeaderRow>
-        <th className="min-w-[116px] px-1">título</th>
-        <th className="min-w-20">valor</th>
-        <th className="min-w-20 px-1">classe</th>
-        <th className="min-w-20">fluxo</th>
-        <th className="min-w-20 ">data</th>
+      <TableComponent.HeaderRow className="grid place-items-center [grid-template-columns:repeat(3,90px)_70px_80px] min-[520px]:[grid-template-columns:repeat(5,1fr)] min-[580px]:[grid-template-columns:repeat(3,90px)_70px_80px] min-[970px]:[grid-template-columns:repeat(5,1fr)_32px]">
+        <th className="">título</th>
+        <th className="">valor</th>
+        <th className="">classe</th>
+        <th className="">fluxo</th>
+        <th className="">data</th>
       </TableComponent.HeaderRow>
 
-      <tbody className="p-1">
+      <tbody className="">
         {notesBook[actualPage - 1].content.map((note) => (
-          <NoteRow note={note} key={`note${note.id}`} />
+          <NoteRow
+            note={note}
+            key={`note${note.id}`}
+            className="grid place-items-center [grid-template-columns:repeat(3,90px)_70px_80px] min-[520px]:[grid-template-columns:repeat(5,1fr)] min-[580px]:[grid-template-columns:repeat(3,90px)_70px_80px] min-[970px]:[grid-template-columns:repeat(5,1fr)_32px]"
+          />
         ))}
       </tbody>
       <tfoot className="sticky left-0 flex w-full justify-center pb-2 pt-1">

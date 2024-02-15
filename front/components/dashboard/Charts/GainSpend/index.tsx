@@ -44,7 +44,7 @@ export function GainSpend({
       {/* full screen button */}
       <Maximize
         onClick={() => setIsFullScreen((old) => !old)}
-        className="absolute bottom-1 right-1"
+        className="absolute bottom-1 right-1 min-[830px]:hidden"
       />
 
       {/* full screen chart */}

@@ -6,7 +6,9 @@ import { NoteProps } from '.'
 export function NoteCard({ noteData }: { noteData: NoteProps }) {
   return (
     <>
-      <h1 className=" font-bold ">{noteData.name}</h1>
+      <h1 className="overflow-hidden text-ellipsis font-bold ">
+        {noteData.name}
+      </h1>
 
       <div className=" grid h-10 w-full grid-cols-3 place-items-center border-b-2 border-neutral-450 dark:border-neutral-500">
         <h1 className=" ">valor</h1>

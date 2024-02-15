@@ -31,27 +31,26 @@ export default function DebtRow({ debt }: { debt: DebtProps }) {
       <TableComponent.BodyRow
         onClick={() => setModalOn((old) => !old)}
         data-payday-status={paymentStatus(debt.payDay)}
-        className="group data-[payday-status=late]:font-bold data-[payday-status=late]:text-negative data-[payday-status=upcoming]:text-amber-500"
+        moreOptClassName="min-[930px]:inline"
+        className="group grid items-center [grid-template-columns:90px_80px_90px_90px_32px] data-[payday-status=late]:font-bold data-[payday-status=late]:text-negative data-[payday-status=upcoming]:text-amber-500 min-[480px]:[grid-template-columns:repeat(4,1fr)_32px] min-[580px]:[grid-template-columns:90px_80px_90px_90px_32px] min-[930px]:[grid-template-columns:repeat(4,1fr)_repeat(2,32px)]"
       >
-        <td className="min-w-32 max-w-32 overflow-hidden text-ellipsis whitespace-nowrap px-1">
-          {debt.name}
-        </td>
-        <td className="min-w-20 px-1">
-          <span className="hidden sm:inline">R$</span>
+        <td className="w-full overflow-hidden text-ellipsis">{debt.name}</td>
+        <td className="px-1">
+          <span className="hidden min-[580px]:inline">R$</span>
           {debt.installmentValue.toLocaleString()}
         </td>
-        <td className="min-w-24">{moment(debt.payDay).format('DD/MM/YY')}</td>
-        <td className="p min-w-24">{debt.remainingInstallments}</td>
-        <td className="sticky right-0 bg-neutral-50 transition-colors  group-hover:bg-neutral-200 dark:bg-neutral-700 dark:group-hover:bg-neutral-600">
+        <td className="">{moment(debt.payDay).format('DD/MM/YY')}</td>
+        <td className="">{debt.remainingInstallments}</td>
+        <td className="sticky -right-1 bg-neutral-50 transition-colors  group-hover:bg-neutral-200 dark:bg-neutral-700 dark:group-hover:bg-neutral-600">
           <IconButton className="rounded-full p-1">
             <MinusCircle />
           </IconButton>
         </td>
       </TableComponent.BodyRow>
-      <tr className="min-[550px]:hidden">
-        <td>
+      <tr className="min-[930px]:hidden">
+        <>
           <DebtModal debtData={debt} isOn={modalOn} setIsOn={setModalOn} />
-        </td>
+        </>
       </tr>
     </>
   )

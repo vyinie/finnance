@@ -40,7 +40,7 @@ export function Budget({ budgetData, ...rest }: BudgetChartProps) {
       {/* full screen button */}
       <IconButton
         onClick={() => setIsFullScreen((old) => !old)}
-        className="absolute bottom-0.5 right-1"
+        className="absolute bottom-0.5 right-1 min-[830px]:hidden"
       >
         <Maximize />
       </IconButton>

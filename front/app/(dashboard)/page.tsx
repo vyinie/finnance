@@ -26,9 +26,9 @@ export default async function Home({
       <AppSideBar />
 
       {/* =============== main dashboard =============== */}
-      <div className="min-[830px]:grid-areas-dashboard flex w-full grid-cols-2 flex-col gap-2 p-1 max-[520px]:items-center min-[580px]:grid min-[830px]:grid-rows-3 ">
+      <section className="flex w-full grid-cols-2 flex-col gap-2 p-1 max-[520px]:items-center min-[580px]:grid min-[830px]:grid-areas-dashboard ">
         {/* =============== cards =============== */}
-        <div className="min-[830px]:grid-in-card flex justify-center gap-1 max-[830px]:col-span-2">
+        <div className="flex w-full justify-center gap-1 max-[830px]:col-span-2 min-[830px]:grid-in-card">
           <Card
             title="despesas do mês"
             value="1200"
@@ -39,31 +39,31 @@ export default async function Home({
 
         {/* =============== budget =============== */}
         <Budget
-          className="min-[830px]:grid-in-budget max-[830px]:col-span-2 min-[830px]:h-full"
+          className="max-[830px]:col-span-2 min-[830px]:h-full min-[830px]:grid-in-budget"
           budgetData={budgetData}
         />
 
         {/* =============== gain-spend ratio =============== */}
         <GainSpend
-          className="min-[830px]:grid-in-gainSpend max-[830px]:col-span-2"
+          className="max-[830px]:col-span-2 min-[830px]:grid-in-gainSpend"
           gainRecords={gainSpendList.gains}
           spendRecors={gainSpendList.spends}
         />
 
         {/* =============== notes table =============== */}
         <NotesTable
-          className="min-[830px]:grid-in-notes"
+          className="p-2 min-[830px]:grid-in-notes"
           notesBook={notesBook}
           currentPage={Number(searchParams.notesPage)}
         />
 
         {/* =============== debts table =============== */}
         <DebtsTable
-          className="min-[830px]:grid-in-debts"
+          className="p-2 min-[830px]:grid-in-debts"
           debtsBook={debtsBook}
           currentPage={Number(searchParams.debtsPage)}
         />
-      </div>
+      </section>
       {/* =============== side bar of add note form =============== */}
     </main>
   )
